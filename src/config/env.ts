@@ -3,8 +3,8 @@ import { z } from "zod";
 
 const envSchema = z.object({
   NODE_ENV: z
-    .enum(["development", "test", "production"])
-    .default("development"),
+    .enum(["dev", "test", "production"])
+    .default("dev"),
   PORT: z.coerce.number().int().positive().default(3000)
 });
 
