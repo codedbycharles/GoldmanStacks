@@ -1,5 +1,5 @@
 /**
- * @file Controllers for authentication endpoints.
+ * @file Controllers for authentication endpoints
  * Takes incoming requests, validates the body with Zod schemas,
  * runs the corresponding service logic and sends back the responses.
  */
