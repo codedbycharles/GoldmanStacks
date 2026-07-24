@@ -35,3 +35,28 @@ export async function createQuote(input: CreateQuoteRecordInput) {
     },
   });
 }
+
+// Fetches all quotes by a user, orders by latest one first
+export async function findQuotesByUserId(userId: string) {
+  return prisma.quote.findMany({
+    where: {
+      userId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+}
+
+// Fetches quote with specific ID, checking that quote belongs to the user
+export async function findQuoteByIdAndUserId(input: {
+  quoteId: string;
+  userId: string;
+}) {
+  return prisma.quote.findFirst({
+    where: {
+      id: input.quoteId,
+      userId: input.userId,
+    },
+  });
+}
