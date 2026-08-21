@@ -16,7 +16,7 @@ function roundUpToNearestTenThousand(value: Decimal) {
   return value.dividedBy(10000).ceil().times(10000);
 }
 
-function getAgeMultiplier(age: number) {
+export function getAgeMultiplier(age: number) {
   if (age < 30) return new Decimal(0.8);
   if (age <= 45) return new Decimal(1);
   if (age <= 60) return new Decimal(1.5);
