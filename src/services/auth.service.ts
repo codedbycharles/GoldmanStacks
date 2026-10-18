@@ -16,6 +16,8 @@ type JwtPayload = {
   userId: string;
 };
 
+const DUMMY_PASSWORD_HASH = bcrypt.hashSync("unused-dummy-password", 12);
+
 // Internal helper to create JWT session tokens
 function createToken(userId: string) {
   return jwt.sign({ userId }, env.JWT_SECRET, {
@@ -68,16 +70,11 @@ export async function registerUser(input: RegisterInput) {
 export async function loginUser(input: LoginInput) {
   const user = await findUserByEmail(input.email);
 
-  if (!user) {
-    throw new Error("Invalid email or password");
-  }
+  const passwordHash = user?.passwordHash ?? DUMMY_PASSWORD_HASH;
 
-  const passwordMatches = await bcrypt.compare(
-    input.password,
-    user.passwordHash,
-  );
+  const passwordMatches = await bcrypt.compare(input.password, passwordHash);
 
-  if (!passwordMatches) {
+  if (!user || !passwordMatches) {
     throw new Error("Invalid email or password");
   }
 
