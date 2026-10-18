@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "dotenv -e .env.test -- vitest run",
+    "test:watch": "dotenv -e .env.test -- vitest"
   },
   "engines": {
     "node": ">=24"
@@ -34,7 +35,10 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.9.2",
     "@types/pg": "^8.20.0",
+    "@types/supertest": "^7.2.1",
+    "dotenv-cli": "^11.0.0",
     "prisma": "^7.8.0",
+    "supertest": "^7.3.1",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11"
