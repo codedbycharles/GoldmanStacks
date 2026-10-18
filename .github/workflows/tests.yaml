@@ -37,7 +37,7 @@ jobs:
         run: cp .env.test.example .env.test
 
       - name: Generate Prisma Client
-        run: npx prisma generate
+        run: npx dotenv -e .env.test -- prisma generate
 
       - name: Apply database migrations
         run: npx dotenv -e .env.test -- prisma migrate deploy
