@@ -1,0 +1,102 @@
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #f5f3ee;
+  background-color: #111315;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* GoldmanStacks palette */
+  --color-background: #111315;
+  --color-surface: #1a1f22;
+  --color-surface-elevated: #232a2f;
+
+  --color-text: #f5f3ee;
+  --color-text-muted: #a7aea6;
+
+  --color-border: #31393f;
+
+  --color-primary: #3fa37a;
+  --color-primary-hover: #328764;
+
+  --color-accent: #d6b98a;
+
+  --color-success: #5ac78c;
+  --color-warning: #d9a441;
+  --color-error: #d96b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.risk-low {
+  color: #80dab2;
+  background: rgba(63, 163, 122, 0.16);
+}
+
+.risk-medium {
+  color: #e4c58e;
+  background: rgba(214, 185, 138, 0.14);
+}
+
+.risk-high {
+  color: #f09a9a;
+  background: rgba(217, 107, 107, 0.14);
+}
+
+.risk-unknown {
+  color: var(--color-text-muted);
+  background: var(--color-surface-elevated);
+}
